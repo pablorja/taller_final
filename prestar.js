@@ -1,7 +1,7 @@
 // Array de libros disponibles
 const libros = [
-  { id: 1, nombre: "Clean Code", disponible: true },
-  { id: 2, nombre: "JavaScript Avanzado", disponible: true },
+  { id: 1, nombre: "Cien Años de soledad", disponible: true },
+  { id: 2, nombre: "el coronel no tiene quien le escriba", disponible: true },
   { id: 3, nombre: "Estructura de Datos", disponible: false }
 ]
 
