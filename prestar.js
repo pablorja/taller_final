@@ -1,52 +1,29 @@
-// Array de libros disponibles
-const libros = [
-  { id: 1, nombre: "Cien Años de soledad", disponible: true },
-  { id: 2, nombre: "el coronel no tiene quien le escriba", disponible: true },
-  { id: 3, nombre: "Estructura de Datos", disponible: false }
-]
+//prestar libro luis
+const prestarLibro = () => {
+const titulo = prompt("¿Qué libro desea prestar?")
 
-// Función para prestar un libro
-const prestarLibro = (idLibro) => {
-  const libro = libros.find(l => l.id === idLibro)
-  
-  if (!libro) {
-    console.log("El libro no existe")
-    return false
-  }
-  
-  if (!libro.disponible) {
-    console.log(`El libro "${libro.nombre}" no está disponible`)
-    return false
-  }
-  
-  libro.disponible = false
-  console.log(`"${libro.nombre}" ha sido prestado exitosamente`)
-  return true
+libros.forEach(libro => {
+if (libro.titulo === titulo && libro.prestado === false) {
+libro.prestado = true
+console.log("Libro prestado con éxito:", libro.titulo)
+} else if (libro.titulo === titulo && libro.prestado === true) {
+console.log("El libro ya está prestado")
 }
-
-// Función para devolver un libro
-const devolverLibro = (idLibro) => {
-  const libro = libros.find(l => l.id === idLibro)
-  
-  if (!libro) {
-    console.log("El libro no existe")
-    return false
-  }
-  
-  if (libro.disponible) {
-    console.log(`El libro "${libro.nombre}" ya está disponible`)
-    return false
-  }
-  
-  libro.disponible = true
-  console.log(`"${libro.nombre}" ha sido devuelto exitosamente`)
-  return true
+})
 }
+prestarLibro()
+console.log(libros)
 
-// Ejemplos de uso
-console.log("--- Pruebas del sistema de préstamo ---\n")
-prestarLibro(1)
-prestarLibro(1)
-devolverLibro(1)
-prestarLibro(2)
-prestarLibro(999)
+//devolver libro luis
+const devolverLibro = () => {
+const titulo = prompt("¿Qué libro desea devolver?")
+
+libros.forEach(libro => {
+if (libro.titulo === titulo && libro.prestado === true) {
+libro.prestado = false
+console.log("Libro devuelto con éxito:", libro.titulo)
+}
+})
+}
+devolverLibro()
+console.log(libros)
